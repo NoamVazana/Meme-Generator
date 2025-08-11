@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin:0;
+}
+
+header{
+    display: flex;
+    background-color: #ff7431;
+}
+
+img {
+    width: 100%;
+}
+
+/* GALLERY VIEW */
+
+.gallery-view {
+    /* display: none; */
+}
