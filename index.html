@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="styles/styles.css">
 
 </head>
-<body class="main-layout">
+<body class="main-layout" onload="onInit()">
     <header class="full main-layout">
         <div class="header-inner-container flex">
             <div class="logo">MemeWiz</div>
             <nav class="main-nav">
                 <ul class="nav-list flex clean-list">
-                    <li class="gallery">Gallery</li>
+                    <li class="gallery" onclick="onGalleryClick()">Gallery</li>
                     <li class="my-memes">My Memes</li>
                 </ul>
             </nav>
@@ -34,27 +34,30 @@
 
         <div class="gallery-main-view">
             <div class="img-container">
-                <img src="meme-imgs/meme-imgs (square)/1.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/2.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/4.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/3.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/5.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/6.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/7.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/8.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/9.jpg" alt="meme-image">
-                <img src="meme-imgs/meme-imgs (square)/10.jpg" alt="meme-image">
+                <img src="meme-imgs/meme-imgs-square/1.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/2.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/4.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/3.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/5.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/6.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/7.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/8.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/9.jpg" alt="meme-image" onclick="onSelectImg(this)">
+                <img src="meme-imgs/meme-imgs-square/10.jpg" alt="meme-image" onclick="onSelectImg(this)">
             </div>
         </div>
     </section>
 
     <!-- EDITOR PAGE -->
-    <section class="editor-view">
+    <section class="editor-view hidden">
         <div class="canvas-container">
-            <canvas></canvas>
+            <canvas width="400" height="400"></canvas>
         </div>
         <div class="controls"></div>
     </section>
+
+    <script src="js/meme.controller.js"></script>
+    <script src="js/meme.service.js"></script>
 
 </body>
 </html>

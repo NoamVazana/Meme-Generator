@@ -1,5 +1,5 @@
 .gallery-main-view .img-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 12px;              /* space between thumbnails */
+  gap: 12px;              
 }
