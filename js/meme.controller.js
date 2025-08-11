@@ -6,20 +6,21 @@ var gCtx
 
 function onInit(){
     console.log("page loaded");    
-
+    // renderGallery()
 }
 
-function onSelectImg(elImg) {
+function onSelectImg(imgID) {
+    var img = getImgById(imgID)
     gElHomePage.classList.add('hidden')
     gElEditorPage.classList.remove('hidden')
 
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    drawImg(elImg.src)
+    renderMeme(img.url)
 }
 
-function drawImg(src) {
+function renderMeme(src) {
     const elImg = new Image()
 
     elImg.src = src
@@ -29,4 +30,26 @@ function drawImg(src) {
 function onGalleryClick() {
     gElHomePage.classList.remove('hidden')
     gElEditorPage.classList.add('hidden')
+}
+
+function onDraw(ev){
+    const offsetX = ev.offsetX
+    const offsety = ev.offsetY
+
+    drawTxt( offsetX, offsety) 
+}
+
+function drawTxt( x, y){
+    const meme = getMeme();
+    const line = meme.lines[0];
+
+    gCtx.fillStyle = line.color;
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 2
+    gCtx.font = `${line.size}px  Arial sans-serif`
+    gCtx.textAlign = 'center'
+    gCtx.textBaseline = 'middle'
+    gCtx.fillText(line.txt, x, y)
+    gCtx.strokeText(line.txt, x, y);
+
 }
