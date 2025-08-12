@@ -4,19 +4,6 @@ const gElEditorPage = document.querySelector('.editor-view')
 var gElCanvas
 var gCtx
 
-function onInit(){
-    console.log("page loaded");    
-    renderGallery()
-}
-
-function renderGallery(){
-    const elImgContainer = document.querySelector('.img-container')
-    var images = getImgs()
-    var strHtml = images.map(image => `
-        <img src="${image.url}" alt="meme-image" onclick="onSelectImg(${image.id})">
-        `)
-    elImgContainer.innerHTML = strHtml.join('')    
-}
 
 function onSelectImg(imgId) {
     changeCurrImg(imgId)
@@ -40,11 +27,6 @@ function renderMeme() {
     gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // loading the image in canvas
 }
 
-function onGalleryClick() {
-    gElHomePage.classList.remove('hidden')
-    gElEditorPage.classList.add('hidden')
-    renderGallery()
-}
 
 function onDraw(ev){
     const offsetX = ev.offsetX
