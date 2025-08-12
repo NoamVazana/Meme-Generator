@@ -1,3 +1,6 @@
+/* SETUP */
+@import url('./setup/typography.css');
+
 /* BASICS */
 @import url('basics/base.css');
 @import url('basics/layout.css');
@@ -7,3 +10,6 @@
 @import url('components/header.css');
 @import url('components/img-container.css');
 @import url('components/filters-container.css');
+@import url('components/logo.css');
+
+

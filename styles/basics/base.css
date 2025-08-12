@@ -2,13 +2,16 @@
     box-sizing: border-box;
 }
 
-body {
-    margin:0;
+html {
+    font-family: lato, sans-serif;
+    line-height: 1.7142857;
+    font-weight: 800;
+    color: #ebebeb;
 }
 
-header{
-    display: flex;
-    background-color: #ff7431;
+body {
+    margin:0;
+    background-color: #1A151B;
 }
 
 img {

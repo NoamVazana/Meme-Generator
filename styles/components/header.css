@@ -1,3 +1,11 @@
+header{
+    position: relative;
+    display: flex;
+    background-color: #432534;
+    /* color: white; */
+    text-shadow: 0px 1.5px #1a1a1a;
+}
+
 .header-inner-container {
     justify-content: space-between;
     align-items: center;
@@ -5,4 +13,15 @@
 
 .nav-list >li {
 padding: 30px 1em 30px 0;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* overlap slightly */
+  left: 0;
+  width: 100%;
+  height: 30px; /* size of the fade */
+  background: linear-gradient(to bottom, #432534, #1A151B);
+  pointer-events: none; /* so it doesn’t block clicks */
 }
