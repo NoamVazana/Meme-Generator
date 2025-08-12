@@ -39,3 +39,11 @@ function getImgById(id){
 function getMeme(){
     return gMeme
 }
+
+function setLineTxt(txt) {
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
+}
+
+function changeCurrImg(imgId){
+    gMeme.selectedImgId = imgId
+}

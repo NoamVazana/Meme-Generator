@@ -18,10 +18,8 @@ function renderGallery(){
     elImgContainer.innerHTML = strHtml.join('')    
 }
 
-function onSelectImg(imgID) {
-    const currMeme = getMeme()
-    currMeme.selectedImgId = imgID
-    var img = getImgById(imgID)
+function onSelectImg(imgId) {
+    changeCurrImg(imgId)
     
     gElHomePage.classList.add('hidden')
     gElEditorPage.classList.remove('hidden')
@@ -29,13 +27,16 @@ function onSelectImg(imgID) {
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
 
-    renderMeme(img.url, currMeme)
+    renderMeme()
 }
 
-function renderMeme(src, meme) {
+function renderMeme() {
     const elImg = new Image()
+    const currMeme = getMeme()
 
-    elImg.src = src
+    var currImage = getImgById(currMeme.selectedImgId)
+
+    elImg.src = currImage.url
     gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // loading the image in canvas
 }
 
@@ -54,7 +55,7 @@ function onDraw(ev){
 
 function drawTxt( x, y){
     const meme = getMeme();
-    const line = meme.lines[0];
+    const line = meme.lines[meme.selectedLineIdx]
 
     gCtx.fillStyle = line.color;
     gCtx.strokeStyle = 'black'
@@ -64,5 +65,11 @@ function drawTxt( x, y){
     gCtx.textBaseline = 'middle'
     gCtx.fillText(line.txt, x, y)
     gCtx.strokeText(line.txt, x, y);
+}
 
+function onInputSubmit(elInput){
+
+    var inputText = elInput.value
+    setLineTxt(inputText)
+    renderMeme()
 }

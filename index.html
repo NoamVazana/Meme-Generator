@@ -43,7 +43,12 @@
         <div class="canvas-container">
             <canvas width="400" height="400" onclick="onDraw(event)"></canvas>
         </div>
-        <div class="controls"></div>
+
+        <div class="controls">
+            <form >
+                <input class="meme-text" type="text" placeholder="Add Text" oninput="onInputSubmit(this)">
+            </form>
+        </div>     
     </section>
 
     <script src="js/meme.controller.js"></script>
