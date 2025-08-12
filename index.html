@@ -22,18 +22,20 @@
 
     <!-- HOME PAGE -->
     <section class="gallery-view">
-        <div class="filters flex">
-            <input class="search" type="text" placeholder="Search" oninput="onSetFilter()">
-            <ul class="key-words flex clean-list">
-                <li class="key-funny">funny</li>
-                <li class="key-cute">cute</li>
-                <li class="key-women">women</li>
-                <li class="key-cat">cat</li>
-            </ul>
-        </div>
+        <div class="main-view-container main-layout">
+            <div class="filters flex">
+                <input class="search" type="text" placeholder="Search" oninput="onSetFilter()">
+                <ul class="key-words flex clean-list">
+                    <li class="key-funny">funny</li>
+                    <li class="key-cute">cute</li>
+                    <li class="key-women">women</li>
+                    <li class="key-cat">cat</li>
+                </ul>
+            </div>
 
-        <div class="gallery-main-view">
-            <div class="img-container">
+            <div class="gallery-main-view">
+                <div class="img-container">
+                </div>
             </div>
         </div>
     </section>
@@ -50,6 +52,11 @@
             </form>
         </div>     
     </section>
+
+    <footer class="main-footer flex full">
+        <div class="logo" onclick="onGalleryClick()">Meme<span>Wiz</span></div>
+        <small>© 2014 Memewiz.com - All Rights Reserved</small>
+    </footer>
 
     <script src="js/meme.controller.js"></script>
     <script src="js/meme.service.js"></script>

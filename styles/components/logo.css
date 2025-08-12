@@ -3,6 +3,16 @@
     font-size: 1.5rem;
     color: inherit;
 }
+
+.logo:hover{
+    cursor: pointer;
+    color: #b0b0b0;
+}
+
+.logo:hover span{
+    color: #b62865;
+}
+
 .logo span{
     color: #ff3b8f;
 }
