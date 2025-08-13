@@ -13,7 +13,7 @@ function onSelectImg(imgId) {
 
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-
+    window.addEventListener('resize', resizeCanvas)
     renderMeme()
 }
 
@@ -25,8 +25,9 @@ function renderMeme() {
 
     elImg.src = currImage.url
     elImg.onload = () => {
-    gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // drawing image on canvas after it finish loading
-} 
+        gElCanvas.height = (elImg.naturalHeight/elImg.naturalWidth) * gElCanvas.width
+        gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // drawing image on canvas after it finish loading
+    } 
 }
 
 
@@ -62,4 +63,10 @@ function onDownloadCanvas(elLink){
     const dataUrl = gElCanvas.toDataURL()
 
     elLink.href = dataUrl
+}
+
+function resizeCanvas(){
+    const elCanvasContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elCanvasContainer.clientWidth
+    renderMeme()
 }
