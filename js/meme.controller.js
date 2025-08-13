@@ -24,7 +24,9 @@ function renderMeme() {
     var currImage = getImgById(currMeme.selectedImgId)
 
     elImg.src = currImage.url
-    gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // loading the image in canvas
+    elImg.onload = () => {
+    gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // drawing image on canvas after it finish loading
+} 
 }
 
 
@@ -54,4 +56,10 @@ function onInputSubmit(elInput){
     var inputText = elInput.value
     setLineTxt(inputText)
     renderMeme()
+}
+
+function onDownloadCanvas(elLink){
+    const dataUrl = gElCanvas.toDataURL()
+
+    elLink.href = dataUrl
 }
