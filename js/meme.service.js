@@ -19,9 +19,10 @@ var gMeme = {
  selectedLineIdx: 0,
  lines: [
  {
- txt: 'I sometimes eat Falafel',
- size: 30,
- color: 'red'
+ txt: 'Add text',
+ size: 40,
+ borderColor: 'black',
+ fillColor: 'red'
  }
  ]
 }
@@ -46,4 +47,20 @@ function setLineTxt(txt) {
 
 function changeCurrImg(imgId){
     gMeme.selectedImgId = imgId
+}
+
+function changeLineBorderColor(color){
+    gMeme.lines[gMeme.selectedLineIdx].borderColor = color
+}
+
+function changeLineFillColor(color){
+    gMeme.lines[gMeme.selectedLineIdx].fillColor = color
+}
+
+function increaseLineFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size+= 5
+}
+
+function decreaseLineFont(){
+    gMeme.lines[gMeme.selectedLineIdx].size -= 5
 }

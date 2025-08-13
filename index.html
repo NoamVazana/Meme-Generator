@@ -50,6 +50,14 @@
             <form >
                 <input class="meme-text" type="text" placeholder="Add Text" oninput="onInputSubmit(this)">
             </form>
+            <div class="line-buttons">
+                <button class="font-size increase" onclick="onSetSize(this)">A+</button>
+                <button class="font-size decrease" onclick="onSetSize(this)">A-</button>
+            </div>
+            <div class="font-controls">
+                <input class="border-color" type="color" title="Pick border color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+                <input class="fill-color" type="color" title="Pick filling color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+            </div>
             <div class="export-options">
                 <h2>
                     <a href="#" onclick="onDownloadCanvas(this)" download="my-meme">Download</a>

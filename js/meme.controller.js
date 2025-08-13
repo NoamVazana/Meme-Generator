@@ -42,9 +42,9 @@ function drawTxt( x, y){
     const meme = getMeme();
     const line = meme.lines[meme.selectedLineIdx]
 
-    gCtx.fillStyle = line.color;
-    gCtx.strokeStyle = 'black'
-    gCtx.lineWidth = 2
+    gCtx.fillStyle = line.fillColor;
+    gCtx.strokeStyle = line.borderColor
+    gCtx.lineWidth = 1
     gCtx.font = `${line.size}px  Arial sans-serif`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
@@ -69,4 +69,19 @@ function resizeCanvas(){
     const elCanvasContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elCanvasContainer.clientWidth
     renderMeme()
+}
+
+function onSetColor(elInput){
+    var color = elInput.value
+    
+    if(elInput.className === 'border-color')
+        changeLineBorderColor(color)
+    else changeLineFillColor(color)
+}
+
+function onSetSize(elBtn){
+    
+    if(elBtn.classList.contains('increase'))
+        increaseLineFont()
+    else decreaseLineFont()
 }
