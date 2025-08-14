@@ -98,3 +98,8 @@ function onAddLine(){
     changeSelectedLineIdx()
     renderMeme()
 }
+
+function onSwitchLine(){
+    switchLineIdx()    
+    renderMeme()
+}

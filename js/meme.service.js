@@ -15,11 +15,12 @@ var gImgs = [
 ]
 
 //INITIAL LINE POSITION
-var gPosition = {x: 20, y: 20}
+// var gPosition = {x: 20, y: 20}
 
 var gMeme = {
     selectedImgId: 5,
     selectedLineIdx: 0,
+    nextLinePos: {x: 20, y: 20},
 
     lines: [
     {
@@ -27,12 +28,18 @@ var gMeme = {
     size: 40,
     borderColor: 'black',
     fillColor: 'White',
-    initPos: {x: gPosition.x, y: gPosition.y}
+    initPos: {x: 20, y: 20}
     }
     ]}
 
 var gKeywordSearchCountMap = {'funny': 12,'cat': 16, 'baby': 2}
 
+function switchLineIdx(){
+    var line = gMeme.selectedLineIdx
+    if(line >= gMeme.lines.length-1 )
+        gMeme.selectedLineIdx = 0
+    else gMeme.selectedLineIdx++
+}
 
 function getLinePos(idx){
     return gMeme.lines[idx].initPos
@@ -40,8 +47,8 @@ function getLinePos(idx){
 
 
 function resetLinePos(){
-    var gX = 20
-    var gY = 20
+    gMeme.nextLinePos.x = 20
+    gMeme.nextLinePos.y = 20
 }
 
 function getImgs() {
@@ -81,14 +88,14 @@ function decreaseLineFont(){
 }
 
 function addLine(){
-    gPosition.x += 30
-    gPosition.y += 30
+    gMeme.nextLinePos.x += 30
+    gMeme.nextLinePos.y += 30
     gMeme.lines.push({
         txt: 'Add text',
         size: 40,
         borderColor: 'black',
         fillColor: 'White',
-        initPos: {x: gPosition.x, y: gPosition.y}
+        initPos: {x: gMeme.nextLinePos.x, y: gMeme.nextLinePos.y}
     })
 }
 
