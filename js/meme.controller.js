@@ -6,8 +6,10 @@ var gCtx
 
 
 function onSelectImg(imgId) {
+
     changeCurrImg(imgId)
-    
+    resetLinePos()
+
     gElHomePage.classList.add('hidden')
     gElEditorPage.classList.remove('hidden')
 
@@ -19,16 +21,15 @@ function onSelectImg(imgId) {
 
 function renderMeme() {
     const elImg = new Image()
-    const currMeme = getMeme()
-
-    var currImage = getImgById(currMeme.selectedImgId)
+    const { selectedImgId, lines } = getMeme();
+    var currImage = getImgById(selectedImgId)
 
     elImg.src = currImage.url
     elImg.onload = () => {
         gElCanvas.height = (elImg.naturalHeight/elImg.naturalWidth) * gElCanvas.width
         gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // drawing image on canvas after it finish loading
-        currMeme.lines.forEach((line) => drawTxt(gElCanvas.width/2, gElCanvas.height/2) )
-        drawTxt(gElCanvas.width/2, gElCanvas.height/2)
+        lines.forEach( drawTxt)
+
     } 
 }
 
@@ -40,18 +41,19 @@ function onDraw(ev){
     drawTxt( offsetX, offsety) 
 }
 
-function drawTxt( x, y){
-    const meme = getMeme();
-    const line = meme.lines[meme.selectedLineIdx]
+function drawTxt(line){
 
     gCtx.fillStyle = line.fillColor;
     gCtx.strokeStyle = line.borderColor
-    gCtx.lineWidth = 1
+    gCtx.lineWidth = 1.5
     gCtx.font = `${line.size}px  Arial sans-serif`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
-    gCtx.fillText(line.txt, x, y)
-    gCtx.strokeText(line.txt, x, y);
+    gCtx.textAlign = 'left';
+    gCtx.textBaseline = 'top';
+    gCtx.fillText(line.txt, line.initPos.x, line.initPos.y)
+    gCtx.strokeText(line.txt, line.initPos.x, line.initPos.y);
+   
 }
 
 function onInputSubmit(elInput){
