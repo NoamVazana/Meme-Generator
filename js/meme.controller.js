@@ -27,6 +27,8 @@ function renderMeme() {
     elImg.onload = () => {
         gElCanvas.height = (elImg.naturalHeight/elImg.naturalWidth) * gElCanvas.width
         gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // drawing image on canvas after it finish loading
+        currMeme.lines.forEach((line) => drawTxt(gElCanvas.width/2, gElCanvas.height/2) )
+        drawTxt(gElCanvas.width/2, gElCanvas.height/2)
     } 
 }
 
@@ -77,6 +79,7 @@ function onSetColor(elInput){
     if(elInput.className === 'border-color')
         changeLineBorderColor(color)
     else changeLineFillColor(color)
+    renderMeme()
 }
 
 function onSetSize(elBtn){
@@ -84,4 +87,12 @@ function onSetSize(elBtn){
     if(elBtn.classList.contains('increase'))
         increaseLineFont()
     else decreaseLineFont()
+
+    renderMeme()
+}
+
+function onAddLine(){
+    addLine()
+    changeSelectedLineIdx()
+    renderMeme()
 }

@@ -22,10 +22,9 @@ var gMeme = {
  txt: 'Add text',
  size: 40,
  borderColor: 'black',
- fillColor: 'red'
+ fillColor: 'White'
  }
- ]
-}
+ ]}
 
 var gKeywordSearchCountMap = {'funny': 12,'cat': 16, 'baby': 2}
 
@@ -63,4 +62,17 @@ function increaseLineFont(){
 
 function decreaseLineFont(){
     gMeme.lines[gMeme.selectedLineIdx].size -= 5
+}
+
+function addLine(){
+    gMeme.lines.push({
+        txt: 'Add text',
+        size: 40,
+        borderColor: 'black',
+        fillColor: 'White'
+    })
+}
+
+function  changeSelectedLineIdx(idx = gMeme.lines.length-1){
+    gMeme.selectedLineIdx = idx
 }

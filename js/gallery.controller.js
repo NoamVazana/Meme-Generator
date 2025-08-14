@@ -17,3 +17,4 @@ function onGalleryClick() {
     gElEditorPage.classList.add('hidden')
     renderGallery()
 }
+
