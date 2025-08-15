@@ -45,14 +45,11 @@
         <div class="canvas-container">
             <canvas width="400" height="400" onclick="onDraw(event)"></canvas>
         </div>
-
-        <div class="controls">
-            <form >
-                <input class="meme-text" type="text" placeholder="Add Text" oninput="onInputSubmit(this)">
-            </form>
-
-
+        
         <!-- Controls area -->
+        <div class="controls">
+            <input class="meme-text" type="text" placeholder="Add Text" oninput="onInputSubmit(this)">
+
             <div class="line-controls">
                 <button class="add-line" title="Add new line" onclick="onAddLine()">+</button>
                 <button class="switch-line" title="Switch line" onclick="onSwitchLine()">linePicker</button>

@@ -21,14 +21,14 @@ function onSelectImg(imgId) {
 
 function renderMeme() {
     const elImg = new Image()
-    const { selectedImgId, lines } = getMeme();
+    const { selectedImgId, lines , selectedLineIdx} = getMeme();
     var currImage = getImgById(selectedImgId)
 
     elImg.src = currImage.url
     elImg.onload = () => {
         gElCanvas.height = (elImg.naturalHeight/elImg.naturalWidth) * gElCanvas.width
         gCtx.drawImage(elImg, 0, 0 , gElCanvas.width, gElCanvas.height) // drawing image on canvas after it finish loading
-        lines.forEach( drawTxt)
+        lines.forEach((line, i) => drawTxt(line, i === selectedLineIdx));
 
     } 
 }
@@ -41,7 +41,7 @@ function onDraw(ev){
     drawTxt( offsetX, offsety) 
 }
 
-function drawTxt(line){
+function drawTxt(line, isHighlighted){
 
     gCtx.fillStyle = line.fillColor;
     gCtx.strokeStyle = line.borderColor
@@ -53,8 +53,26 @@ function drawTxt(line){
     gCtx.textBaseline = 'top';
     gCtx.fillText(line.txt, line.initPos.x, line.initPos.y)
     gCtx.strokeText(line.txt, line.initPos.x, line.initPos.y);
+
+    if(isHighlighted) drawSelectionBox(line)
    
 }
+
+function drawSelectionBox(line){
+
+    // MEASURE LINE DIMENTIONS
+    const pad = 12
+    const metrics = gCtx.measureText(line.txt)   
+    const width = metrics.width + pad
+    const height =  ( line.size * 0.8) + (line.size * 0.2) + pad
+            
+    const x = line.initPos.x - pad/2
+    const y = line.initPos.y - pad/2
+
+    gCtx.rect(x , y  , width, height)
+    gCtx.stroke()
+}
+
 
 function onInputSubmit(elInput){
 
