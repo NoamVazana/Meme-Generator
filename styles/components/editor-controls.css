@@ -1,0 +1,10 @@
+.controls{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: start;
+    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+

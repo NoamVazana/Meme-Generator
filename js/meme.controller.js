@@ -15,7 +15,10 @@ function onSelectImg(imgId) {
 
     gElCanvas = document.querySelector('canvas')
     gCtx = gElCanvas.getContext('2d')
-    window.addEventListener('resize', resizeCanvas)
+
+    resizeCanvas() //resize when entering editor view
+
+    window.addEventListener('resize', resizeCanvas) //resize of future size changes
     renderMeme()
 }
 
@@ -123,7 +126,7 @@ function onDownloadCanvas(elLink){
 
 function resizeCanvas(){
     const elCanvasContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elCanvasContainer.clientWidth
+    gElCanvas.width = elCanvasContainer.clientWidth- 60
     renderMeme()
 }
 

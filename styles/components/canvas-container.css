@@ -1,0 +1,11 @@
+.canvas-container{
+    display: grid;
+    height: 100%;
+    place-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.canvas-container canvas{
+    border-radius: 20px;
+}
