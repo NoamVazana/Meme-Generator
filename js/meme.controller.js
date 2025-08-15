@@ -34,11 +34,23 @@ function renderMeme() {
 }
 
 
-function onDraw(ev){
-    const offsetX = ev.offsetX
-    const offsety = ev.offsetY
+function onLineClick(ev){
+    var meme = getMeme()
 
-    drawTxt( offsetX, offsety) 
+    const offsetX = ev.offsetX
+    const offsetY = ev.offsetY
+
+    const clickedLineIdx = meme.lines.findIndex((line, i) => {
+        const {width, height} = getLineDimentions(line)
+        const {x, y}= line.pos
+        return (
+            offsetX >= x && offsetX <= x + width &&
+            offsetY >= y && offsetY <= y + height
+        )
+    })
+    changeSelectedLineIdx(clickedLineIdx)
+    console.log(clickedLineIdx)
+    renderMeme()
 }
 
 function drawTxt(line, isHighlighted){
@@ -51,26 +63,48 @@ function drawTxt(line, isHighlighted){
     gCtx.textBaseline = 'middle'
     gCtx.textAlign = 'left';
     gCtx.textBaseline = 'top';
-    gCtx.fillText(line.txt, line.initPos.x, line.initPos.y)
-    gCtx.strokeText(line.txt, line.initPos.x, line.initPos.y);
+    gCtx.fillText(line.txt, line.pos.x, line.pos.y)
+    gCtx.strokeText(line.txt, line.pos.x, line.pos.y);
 
     if(isHighlighted) drawSelectionBox(line)
    
 }
 
+// function drawSelectionBox(line){
+
+//     // MEASURE LINE DIMENTIONS
+//     const pad = 12
+//     const metrics = gCtx.measureText(line.txt)   
+//     const width = metrics.width + pad
+//     const height =  ( line.size * 0.8) + (line.size * 0.2) + pad
+            
+//     const x = line.pos.x - pad/2
+//     const y = line.pos.y - pad/2
+
+//     gCtx.rect(x , y  , width, height)
+//     gCtx.stroke()
+// }
+
 function drawSelectionBox(line){
 
     // MEASURE LINE DIMENTIONS
     const pad = 12
-    const metrics = gCtx.measureText(line.txt)   
+    const metrics = getLineDimentions(line)  
     const width = metrics.width + pad
-    const height =  ( line.size * 0.8) + (line.size * 0.2) + pad
+    const height =  metrics.height + pad
             
-    const x = line.initPos.x - pad/2
-    const y = line.initPos.y - pad/2
+    const x = line.pos.x - pad/2
+    const y = line.pos.y - pad/2
 
     gCtx.rect(x , y  , width, height)
     gCtx.stroke()
+}
+
+function getLineDimentions(line){
+    const metrics = gCtx.measureText(line.txt)   
+    const width = metrics.width 
+    const height =  ( line.size * 0.8) + (line.size * 0.2)
+    return {width, height}
 }
 
 
@@ -121,3 +155,4 @@ function onSwitchLine(){
     switchLineIdx()    
     renderMeme()
 }
+

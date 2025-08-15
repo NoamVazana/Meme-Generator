@@ -28,7 +28,7 @@ var gMeme = {
     size: 40,
     borderColor: 'black',
     fillColor: 'White',
-    initPos: {x: 20, y: 20}
+    pos: {x: 20, y: 20}
     }
     ]}
 
@@ -42,7 +42,7 @@ function switchLineIdx(){
 }
 
 function getLinePos(idx){
-    return gMeme.lines[idx].initPos
+    return gMeme.lines[idx].pos
 }
 
 
@@ -88,17 +88,18 @@ function decreaseLineFont(){
 }
 
 function addLine(){
-    gMeme.nextLinePos.x += 30
-    gMeme.nextLinePos.y += 30
+    gMeme.nextLinePos.x += 40
+    gMeme.nextLinePos.y += 40
     gMeme.lines.push({
         txt: 'Add text',
         size: 40,
         borderColor: 'black',
         fillColor: 'White',
-        initPos: {x: gMeme.nextLinePos.x, y: gMeme.nextLinePos.y}
+        pos: {x: gMeme.nextLinePos.x, y: gMeme.nextLinePos.y}
     })
 }
 
 function  changeSelectedLineIdx(idx = gMeme.lines.length-1){
     gMeme.selectedLineIdx = idx
 }
+
