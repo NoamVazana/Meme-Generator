@@ -8,8 +8,8 @@ var gCtx
 function onSelectImg(imgId) {
 
     changeCurrImg(imgId)
-    resetLinePos()
-
+    // resetLinePos()
+    resetLines()
     gElHomePage.classList.add('hidden')
     gElEditorPage.classList.remove('hidden')
 
@@ -38,6 +38,7 @@ function renderMeme() {
 
 
 function onLineClick(ev){
+    const elInput = document.querySelector('.meme-text')
     var meme = getMeme()
 
     const offsetX = ev.offsetX
@@ -51,6 +52,7 @@ function onLineClick(ev){
             offsetY >= y && offsetY <= y + height
         )
     })
+    elInput.value = meme.lines[clickedLineIdx].txt
     changeSelectedLineIdx(clickedLineIdx)
     console.log(clickedLineIdx)
     renderMeme()
@@ -116,6 +118,10 @@ function onInputSubmit(elInput){
     var inputText = elInput.value
     setLineTxt(inputText)
     renderMeme()
+}
+
+function onMemeTxttBlur(elInput){
+    elInput.value = ''
 }
 
 function onDownloadCanvas(elLink){

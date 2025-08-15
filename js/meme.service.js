@@ -46,10 +46,10 @@ function getLinePos(idx){
 }
 
 
-function resetLinePos(){
-    gMeme.nextLinePos.x = 20
-    gMeme.nextLinePos.y = 20
-}
+// function resetLinePos(){
+//     gMeme.nextLinePos.x = 20
+//     gMeme.nextLinePos.y = 20
+// }
 
 function getImgs() {
     return gImgs
@@ -103,3 +103,12 @@ function  changeSelectedLineIdx(idx = gMeme.lines.length-1){
     gMeme.selectedLineIdx = idx
 }
 
+function resetLines(){
+    gMeme.lines = [{
+    txt: 'Add text',
+    size: 40,
+    borderColor: 'black',
+    fillColor: 'White',
+    pos: {x: 20, y: 20}
+    }]
+}
