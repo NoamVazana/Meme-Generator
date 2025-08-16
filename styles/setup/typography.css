@@ -56,4 +56,11 @@
     content: "\41\f068";
 }
 
+.border.color-set-container::before{
+    content: "\f044";    
+}
+
+.fill.color-set-container::before{
+    content: "\f576"; 
+}
 

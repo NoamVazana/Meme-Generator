@@ -24,7 +24,7 @@ var gMeme = {
 
     lines: [
     {
-    txt: 'Add text',
+    txt: 'Add Text',
     size: 40,
     weight: 'normal',
     font: 'Arial, sans-serif',
@@ -96,7 +96,7 @@ function addLine(){
     gMeme.nextLinePos.x += 40
     gMeme.nextLinePos.y += 40
     gMeme.lines.push({
-        txt: 'Add text',
+        txt: 'Add Text',
         size: 40,
         weight: 'normal',
         font:'Arial, sans-serif',
@@ -114,7 +114,7 @@ function  changeSelectedLineIdx(idx = gMeme.lines.length-1){
 function resetLines(){
     gMeme.selectedLineIdx = 0
     gMeme.lines = [{
-    txt: 'Add text',
+    txt: 'Add Text',
     size: 40,
     weight: 'normal',
     font:'Arial, sans-serif',

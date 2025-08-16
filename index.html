@@ -82,8 +82,12 @@
                         <option value="courier new, monospace">Courier New</option>
                         <option value="brush script mt, cursive">Brush Script MT</option>
                     </select>
-                    <input class="border-color" type="color" title="Pick border color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
-                    <input class="fill-color" type="color" title="Pick filling color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+                    <label class="border color-set-container fa">
+                        <input class="border-color" type="color" title="Pick border color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+                    </label>
+                    <label class="fill color-set-container fa">
+                        <input class="fill-color" type="color" title="Pick filling color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+                    </label>
                     <label class="weight-switch">
                         <input type="checkbox" title="Change Font Weight" onclick="onWeightChange(this)">
                         <span class="slider round">
@@ -94,9 +98,9 @@
                 </section>
 
             </div>
-            <div class="export-options">
+            <div class="export-options fa">
                 <h2>
-                    <a href="#" onclick="onDownloadCanvas(this)" download="my-meme">Download</a>
+                    <a class="fa" href="#" onclick="onDownloadCanvas(this)" download="my-meme">Download</a>
                 </h2>
             </div>
         </div>     
