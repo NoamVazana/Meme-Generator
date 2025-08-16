@@ -3,6 +3,7 @@ const gElHomePage = document.querySelector('.gallery-view')
 const gElEditorPage = document.querySelector('.editor-view')
 var gElCanvas
 var gCtx
+var gLastPos
 
 
 function onSelectImg(imgId) {
@@ -39,24 +40,18 @@ function renderMeme() {
 
 function onLineClick(ev){
     const elInput = document.querySelector('.meme-text')
-    var meme = getMeme()
 
-    const offsetX = ev.offsetX
-    const offsetY = ev.offsetY
+    const { x: offsetX, y: offsetY} = getEvPos(ev)
+    // const offsetX = ev.offsetX
+    // const offsetY = ev.offsetY
+    const isClicked = isLineClicked(offsetX, offsetY)
 
-    const clickedLineIdx = meme.lines.findIndex((line, i) => {
-        const {width, height} = getLineDimentions(line)
-        const {x, y}= line.pos
-        return (
-            offsetX >= x && offsetX <= x + width &&
-            offsetY >= y && offsetY <= y + height
-        )
-    })
-    elInput.value = meme.lines[clickedLineIdx].txt
-    changeSelectedLineIdx(clickedLineIdx)
-    console.log(clickedLineIdx)
+    if(isClicked >= 0)
+        elInput.value = getLineTxt()
+    else elInput.value = ''
     renderMeme()
 }
+
 
 function drawTxt(line, isHighlighted){
 
@@ -106,9 +101,6 @@ function onInputSubmit(elInput){
     renderMeme()
 }
 
-function onMemeTxttBlur(elInput){
-    elInput.value = ''
-}
 
 function onDownloadCanvas(elLink){
     const dataUrl = gElCanvas.toDataURL()
@@ -160,4 +152,45 @@ function onWeightChange(elBtn){
     const isBold = elBtn.checked
     changeLineWeight(isBold)
     renderMeme()
+}
+
+function onDown(ev){
+    const pos = getEvPos(ev)
+    gLastPos = pos
+    if(isLineClicked(pos.x, pos.y) < 0) return
+
+    setLineDrag(true)
+    document.body.style.cursor = 'grabbing'
+
+}
+
+function onMove(ev) {
+    const { isDrag } = getLine()
+   
+    if (!isDrag) return
+    const pos = getEvPos(ev)
+
+    //* Calculate distance moved from drag start position
+    const dx = pos.x - gLastPos.x
+    const dy = pos.y - gLastPos.y
+    moveLine(dx, dy)
+
+    //* Update start position for next move calculation
+    gLastPos = pos
+
+    renderMeme()
+}
+
+function onUp() {
+    setLineDrag(false)
+    document.body.style.cursor = 'grab'
+}
+
+function getEvPos(ev){
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY,
+    }
+
+    return pos
 }

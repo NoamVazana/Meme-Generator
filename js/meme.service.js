@@ -30,7 +30,8 @@ var gMeme = {
     font: 'Arial, sans-serif',
     borderColor: 'black',
     fillColor: 'White',
-    pos: {x: 20, y: 20}
+    pos: {x: 20, y: 20},
+    isDrag: false
     }
     ]}
 
@@ -57,6 +58,14 @@ function getImgById(id){
 
 function getMeme(){
     return gMeme
+}
+
+function getLine(){
+    return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function getLineTxt(){
+    return gMeme.lines[gMeme.selectedLineIdx].txt
 }
 
 function setLineTxt(txt) {
@@ -93,7 +102,8 @@ function addLine(){
         font:'Arial, sans-serif',
         borderColor: 'black',
         fillColor: 'White',
-        pos: {x: gMeme.nextLinePos.x, y: gMeme.nextLinePos.y}
+        pos: {x: gMeme.nextLinePos.x, y: gMeme.nextLinePos.y},
+        isDrag: false
     })
 }
 
@@ -109,7 +119,8 @@ function resetLines(){
     font:'Arial, sans-serif',
     borderColor: 'black',
     fillColor: 'White',
-    pos: {x: 20, y: 20}
+    pos: {x: 20, y: 20},
+    isDrag: false
     }]
 }
 
@@ -121,4 +132,30 @@ function changeLineWeight(isBold){
     if(isBold === true)
         gMeme.lines[gMeme.selectedLineIdx].weight = 'bold'
     else gMeme.lines[gMeme.selectedLineIdx].weight = 'normal'
+}
+
+function isLineClicked(offsetX, offsetY){
+    const clickedLineIdx = gMeme.lines.findIndex((line, i) => {
+        const {width, height} = getLineDimentions(line)
+        const {x, y}= line.pos
+        return (
+            offsetX >= x && offsetX <= x + width &&
+            offsetY >= y && offsetY <= y + height
+        )
+    })
+    if(clickedLineIdx >=0)
+        changeSelectedLineIdx(clickedLineIdx)
+
+    return clickedLineIdx
+}
+
+function setLineDrag(isDrag){
+    const line = getLine()
+    line.isDrag = isDrag
+}
+
+function moveLine(dx, dy){
+    const line = getLine()
+    line.pos.x += dx
+    line.pos.y += dy
 }

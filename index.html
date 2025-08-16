@@ -43,12 +43,17 @@
     <!-- EDITOR PAGE -->
     <section class="editor-view hidden">
         <div class="canvas-container">
-            <canvas width="400" height="400" onclick="onLineClick(event)"></canvas>
+            <canvas width="400" height="400" 
+            onclick="onLineClick(event)"
+            onmousedown="onDown(event)"
+            onmouseup="onUp()" 
+            onmousemove="onMove(event)"
+            ></canvas>
         </div>
         
         <!-- Controls area -->
         <div class="controls">
-            <input class="meme-text" type="text" placeholder="Add Text" oninput="onInputSubmit(this)" onblur="onMemeTxttBlur(this)">
+            <input class="meme-text" type="text" placeholder="Add Text" oninput="onInputSubmit(this)" >
 
             <div class="line-controls">
                 <button class="add-line" title="Add new line" onclick="onAddLine()">+</button>
