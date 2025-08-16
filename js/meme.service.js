@@ -48,8 +48,21 @@ function getLinePos(idx){
     return gMeme.lines[idx].pos
 }
 
-function getImgs() {
-    return gImgs
+function getImgs(text) {
+    var imgs = _filterImgs(text)
+    return imgs
+}
+
+function _filterImgs(txt=''){
+    var imgs = gImgs.slice()
+
+     if (txt) {
+        imgs = imgs.filter(img =>  
+            img.keywords.some(word => word.toLowerCase().includes(txt)))
+    }
+            
+    return imgs
+
 }
 
 function getImgById(id){
@@ -173,3 +186,4 @@ function deleteLine(){
     gMeme.lines.splice(idx, 1)
 
 }
+

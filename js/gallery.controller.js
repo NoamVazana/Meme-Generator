@@ -1,15 +1,20 @@
+'use strict'
+var gCurrFilter = ''
+
 function onInit(){
-    console.log("page loaded");    
     renderGallery()
+    
 }
 
 function renderGallery(){
     const elImgContainer = document.querySelector('.img-container')
-    var images = getImgs()
+    var images = getImgs(gCurrFilter)
     var strHtml = images.map(image => `
         <img src="${image.url}" alt="meme-image" onclick="onSelectImg(${image.id})">
         `)
-    elImgContainer.innerHTML = strHtml.join('')    
+    elImgContainer.innerHTML = strHtml.join('')   
+    
+    
 }
 
 function onGalleryClick() {
@@ -18,3 +23,8 @@ function onGalleryClick() {
     renderGallery()
 }
 
+function onSetFilter(elInput){
+    gCurrFilter = elInput.value.toLowerCase()
+    console.log(gCurrFilter)
+    renderGallery()
+}
