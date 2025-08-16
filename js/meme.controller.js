@@ -63,7 +63,7 @@ function drawTxt(line, isHighlighted){
     gCtx.fillStyle = line.fillColor;
     gCtx.strokeStyle = line.borderColor
     gCtx.lineWidth = 1.5
-    gCtx.font = `${line.size}px  Arial sans-serif`
+    gCtx.font = `${line.weight} ${line.size}px  ${line.font}`
     gCtx.textAlign = 'center'
     gCtx.textBaseline = 'middle'
     gCtx.textAlign = 'left';
@@ -75,20 +75,6 @@ function drawTxt(line, isHighlighted){
    
 }
 
-// function drawSelectionBox(line){
-
-//     // MEASURE LINE DIMENTIONS
-//     const pad = 12
-//     const metrics = gCtx.measureText(line.txt)   
-//     const width = metrics.width + pad
-//     const height =  ( line.size * 0.8) + (line.size * 0.2) + pad
-            
-//     const x = line.pos.x - pad/2
-//     const y = line.pos.y - pad/2
-
-//     gCtx.rect(x , y  , width, height)
-//     gCtx.stroke()
-// }
 
 function drawSelectionBox(line){
 
@@ -165,3 +151,13 @@ function onSwitchLine(){
     renderMeme()
 }
 
+function onSetFont(elOption){
+    changeLineFont(elOption.value)
+    renderMeme()
+}
+
+function onWeightChange(elBtn){
+    const isBold = elBtn.checked
+    changeLineWeight(isBold)
+    renderMeme()
+}

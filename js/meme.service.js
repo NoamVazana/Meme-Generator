@@ -26,6 +26,8 @@ var gMeme = {
     {
     txt: 'Add text',
     size: 40,
+    weight: 'normal',
+    font: 'Arial, sans-serif',
     borderColor: 'black',
     fillColor: 'White',
     pos: {x: 20, y: 20}
@@ -44,12 +46,6 @@ function switchLineIdx(){
 function getLinePos(idx){
     return gMeme.lines[idx].pos
 }
-
-
-// function resetLinePos(){
-//     gMeme.nextLinePos.x = 20
-//     gMeme.nextLinePos.y = 20
-// }
 
 function getImgs() {
     return gImgs
@@ -93,6 +89,8 @@ function addLine(){
     gMeme.lines.push({
         txt: 'Add text',
         size: 40,
+        weight: 'normal',
+        font:'Arial, sans-serif',
         borderColor: 'black',
         fillColor: 'White',
         pos: {x: gMeme.nextLinePos.x, y: gMeme.nextLinePos.y}
@@ -107,8 +105,20 @@ function resetLines(){
     gMeme.lines = [{
     txt: 'Add text',
     size: 40,
+    weight: 'normal',
+    font:'Arial, sans-serif',
     borderColor: 'black',
     fillColor: 'White',
     pos: {x: 20, y: 20}
     }]
+}
+
+function changeLineFont(font){
+    gMeme.lines[gMeme.selectedLineIdx].font = font
+}
+
+function changeLineWeight(isBold){
+    if(isBold === true)
+        gMeme.lines[gMeme.selectedLineIdx].weight = 'bold'
+    else gMeme.lines[gMeme.selectedLineIdx].weight = 'normal'
 }
