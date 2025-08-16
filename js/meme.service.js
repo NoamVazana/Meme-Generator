@@ -166,3 +166,9 @@ function setLinePos(x, y){
     if (y !== undefined ) line.pos.y = y
 
 }
+
+function deleteLine(){
+    const idx = gMeme.selectedLineIdx
+    gMeme.lines.splice(idx, 1)
+
+}

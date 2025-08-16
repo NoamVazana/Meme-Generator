@@ -165,7 +165,8 @@ function onDown(ev){
 }
 
 function onMove(ev) {
-    const { isDrag } = getLine()
+    const line = getLine()
+    const { isDrag } = line
    
     if (!isDrag) return
     const pos = getEvPos(ev)
@@ -219,5 +220,10 @@ function onTextAlign(elBtn){
         break;
     }
 
+    renderMeme()
+}
+
+function onDeleteLine(){
+    deleteLine()
     renderMeme()
 }
