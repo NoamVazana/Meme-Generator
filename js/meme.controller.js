@@ -194,3 +194,30 @@ function getEvPos(ev){
 
     return pos
 }
+
+function onTextAlign(elBtn){
+    const {width, height} = getLineDimentions(getLine())
+    const alignDir = elBtn.classList.value
+    const canvasWidth = gElCanvas.width
+    const canvasheight = gElCanvas.height
+
+    console.log(alignDir);
+    
+    switch (alignDir) {
+        case "align-left":
+            setLinePos(20)
+            break;
+
+        case "align-center":
+            setLinePos(canvasWidth/2 - width/2)
+            
+            break;
+        
+        case "align-right":
+            setLinePos(canvasWidth - 20 - width)
+
+        break;
+    }
+
+    renderMeme()
+}

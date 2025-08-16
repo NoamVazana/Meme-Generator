@@ -60,28 +60,38 @@
                 <button class="switch-line" title="Switch line" onclick="onSwitchLine()">linePicker</button>
             </div>
             <div class="font-controls">
-                <button class="font-size increase" onclick="onSetSize(this)">A+</button>
-                <button class="font-size decrease" onclick="onSetSize(this)">A-</button>
-                <label class="weight-switch">
-                    <input type="checkbox" title="Change Font Weight" onclick="onWeightChange(this)">
-                    <span class="slider round">
-                        <span class="label normal">N</span>
-                        <span class="label bold">B</span>
-                    </span>
-                </label>
-                <select title="Choose font" onchange="onSetFont(this)">
-                    <option value="ariel, sans-serif">Ariel</option>
-                    <option value="verdana, sans-serif">Verdana</option>
-                    <option value="tahoma, sans-serif">Tahoma</option>
-                    <option value="trebuchet ms, sans-serif">Trebuchet MS</option>
-                    <option value="times new roman, serif">Times New Roman</option>
-                    <option value="georgia, serif">Georgia</option>
-                    <option value="garamond, serif">Garamond</option>
-                    <option value="courier new, monospace">Courier New</option>
-                    <option value="brush script mt, cursive">Brush Script MT</option>
-                </select>
-                <input class="border-color" type="color" title="Pick border color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
-                <input class="fill-color" type="color" title="Pick filling color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+
+                <section class="font-alignments">
+                    <button class="align-left" onclick="onTextAlign(this)">L</button>
+                    <button class="align-center" onclick="onTextAlign(this)">M</button>
+                    <button class="align-right" onclick="onTextAlign(this)">R</button>
+                    <button class="font-size increase" onclick="onSetSize(this)">A+</button>
+                    <button class="font-size decrease" onclick="onSetSize(this)">A-</button>
+                </section>
+
+                <section class="font-edit">
+                    <select title="Choose font" onchange="onSetFont(this)">
+                        <option value="ariel, sans-serif">Ariel</option>
+                        <option value="verdana, sans-serif">Verdana</option>
+                        <option value="tahoma, sans-serif">Tahoma</option>
+                        <option value="trebuchet ms, sans-serif">Trebuchet MS</option>
+                        <option value="times new roman, serif">Times New Roman</option>
+                        <option value="georgia, serif">Georgia</option>
+                        <option value="garamond, serif">Garamond</option>
+                        <option value="courier new, monospace">Courier New</option>
+                        <option value="brush script mt, cursive">Brush Script MT</option>
+                    </select>
+                    <input class="border-color" type="color" title="Pick border color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+                    <input class="fill-color" type="color" title="Pick filling color" oninput="onSetColor(this)">  <!-- COLOR PICKER -->
+                    <label class="weight-switch">
+                        <input type="checkbox" title="Change Font Weight" onclick="onWeightChange(this)">
+                        <span class="slider round">
+                            <span class="label normal">N</span>
+                            <span class="label bold">B</span>
+                        </span>
+                    </label>
+                </section>
+
             </div>
             <div class="export-options">
                 <h2>

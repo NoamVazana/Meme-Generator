@@ -159,3 +159,10 @@ function moveLine(dx, dy){
     line.pos.x += dx
     line.pos.y += dy
 }
+
+function setLinePos(x, y){
+    const line = getLine()
+    if (x !== undefined ) line.pos.x = x
+    if (y !== undefined ) line.pos.y = y
+
+}
