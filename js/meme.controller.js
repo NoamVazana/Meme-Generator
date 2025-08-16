@@ -72,7 +72,7 @@ function drawTxt(line, isHighlighted){
 
 
 function drawSelectionBox(line){
-
+    
     // MEASURE LINE DIMENTIONS
     const pad = 12
     const metrics = getLineDimentions(line)  
@@ -83,6 +83,7 @@ function drawSelectionBox(line){
     const y = line.pos.y - pad/2
 
     gCtx.rect(x , y  , width, height)
+    gCtx.strokeStyle = 'black'
     gCtx.stroke()
 }
 
@@ -165,9 +166,7 @@ function onDown(ev){
 }
 
 function onMove(ev) {
-    const line = getLine()
-    const { isDrag } = line
-   
+    const { isDrag } = getLine()
     if (!isDrag) return
     const pos = getEvPos(ev)
 
@@ -198,23 +197,23 @@ function getEvPos(ev){
 
 function onTextAlign(elBtn){
     const {width, height} = getLineDimentions(getLine())
-    const alignDir = elBtn.classList.value
+    const alignDir = elBtn.dataset.dir
     const canvasWidth = gElCanvas.width
     const canvasheight = gElCanvas.height
 
     console.log(alignDir);
     
     switch (alignDir) {
-        case "align-left":
+        case "L":
             setLinePos(20)
             break;
 
-        case "align-center":
+        case "M":
             setLinePos(canvasWidth/2 - width/2)
             
             break;
         
-        case "align-right":
+        case "R":
             setLinePos(canvasWidth - 20 - width)
 
         break;

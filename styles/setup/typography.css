@@ -12,5 +12,48 @@
     font-family: lato;
     font-weight: 700;
     src: url(/fonts/Lato/Lato-Bold.ttf);
-
 }
+
+/* FONT AWESOME */
+
+@font-face {
+    font-family: fa;
+    src: url(/fonts/fa/fa-solid-900.woff2);
+}
+
+
+.add-line::before {
+    content:"\2b";
+    font-weight: 900;
+    font-size: 2em;
+}
+
+.switch-line::before{
+    content: "\f0dc";
+}
+
+.delete-line::before{
+    content: "\f1f8";
+}
+
+.align-left::before{
+    content: "\f036";
+}
+
+.align-center::before{
+    content: "\f039";
+}
+
+.align-right::before{
+    content: "\f038";
+}
+
+.font-size.increase::before{
+    content: "\41\2b";
+}
+
+.font-size.decrease::before{
+    content: "\41\f068";
+}
+
+

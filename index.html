@@ -56,18 +56,18 @@
             <input class="meme-text" type="text" placeholder="Add Text" oninput="onInputSubmit(this)" >
 
             <div class="line-controls">
-                <button class="add-line" title="Add new line" onclick="onAddLine()">+</button>
-                <button class="switch-line" title="Switch line" onclick="onSwitchLine()">linePicker</button>
-                <button class="delete-line" onclick="onDeleteLine()">Delete</button>
+                <button class="add-line fa" title="Add new line" onclick="onAddLine()"></button>
+                <button class="switch-line fa" title="Switch line" onclick="onSwitchLine()"></button>
+                <button class="delete-line fa" onclick="onDeleteLine()"></button>
             </div>
             <div class="font-controls">
 
                 <section class="font-alignments">
-                    <button class="align-left" onclick="onTextAlign(this)">L</button>
-                    <button class="align-center" onclick="onTextAlign(this)">M</button>
-                    <button class="align-right" onclick="onTextAlign(this)">R</button>
-                    <button class="font-size increase" onclick="onSetSize(this)">A+</button>
-                    <button class="font-size decrease" onclick="onSetSize(this)">A-</button>
+                    <button class="align-left fa" data-dir="L" onclick="onTextAlign(this)"></button>
+                    <button class="align-center fa" data-dir="M" onclick="onTextAlign(this)"></button>
+                    <button class="align-right fa" data-dir="R" onclick="onTextAlign(this)"></button>
+                    <button class="font-size increase fa" onclick="onSetSize(this)"></button>
+                    <button class="font-size decrease fa" onclick="onSetSize(this)"></button>
                 </section>
 
                 <section class="font-edit">

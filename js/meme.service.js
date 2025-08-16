@@ -112,6 +112,7 @@ function  changeSelectedLineIdx(idx = gMeme.lines.length-1){
 }
 
 function resetLines(){
+    gMeme.selectedLineIdx = 0
     gMeme.lines = [{
     txt: 'Add text',
     size: 40,

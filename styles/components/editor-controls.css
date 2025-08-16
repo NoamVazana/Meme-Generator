@@ -6,5 +6,37 @@
     justify-content: center;
     padding-left: 30px;
     padding-right: 30px;
+    gap: 10px
 }
+
+/* BUTTONS */
+.controls button{
+  appearance: none;
+  border: 1px solid #ddd;
+  background: #fff;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color .15s ease, transform .05s ease;
+}
+
+.controls button:hover{
+  background: #f2d5e1;
+}
+
+.controls button:active {
+  transform: translateY(1px);
+  background: #f2d5e1;
+}
+
+.font-controls{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 
