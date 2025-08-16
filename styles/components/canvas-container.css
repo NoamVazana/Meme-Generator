@@ -4,6 +4,8 @@
     place-items: center;
     padding-left: 30px;
     padding-right: 30px;
+    max-width: 500px ;
+    padding-top: 30px;    
 }
 
 .canvas-container canvas{

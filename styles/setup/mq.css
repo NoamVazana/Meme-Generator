@@ -3,27 +3,18 @@
 }
 
 @media (min-width: 850px ){
-    /* .editor-view{
-        grid-template-columns: 1fr !important;
-        place-items: center;
-    }
-     .canvas-container{ 
-        max-width: 500px !important;
-        padding-top: 30px;
-     }     */
+  
+    
 }
      
 
 @media (min-width: 960px ){
-    /* .editor-view {
-        display: grid;
-        grid-template-columns: minmax(16px, 1fr) minmax(16px, 1fr);
-        align-items: center;    
-        gap: 12px;
-        margin-bottom: 24px;
-        margin-top: 24px;
-        background-color: #502b3b;
-        border-radius: 70px;
-        box-shadow: inset #ff3b8f 6px 6px 7px 0px, #1a0b12 9px 10px 7px;
-    } */
+    .editor-view {
+        grid-template-columns: minmax(16px, 1fr) minmax(16px, 1fr) !important;
+    }
+
+    .canvas-container{ 
+        max-width: none !important;
+        padding-top: 0;
+    }  
 }

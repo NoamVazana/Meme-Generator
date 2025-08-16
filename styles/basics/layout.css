@@ -15,8 +15,8 @@
 /* EDITOR VIEW */
 .editor-view {
     display: grid;
-    grid-template-columns: minmax(16px, 1fr) minmax(16px, 1fr);
-    align-items: center;    
+    grid-template-columns: 1fr;
+    place-items: center;    
     gap: 12px;
     margin-bottom: 24px;
     margin-top: 24px;
